@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pandas = "==0.24.2"
+numpy = "==1.16.2"
+torch = "==1.4.0"
+gensim = "==3.7.1"
+tensorboardX = "==1.6"
+yapf = "*"
+jedi = "*"
+
+[dev-packages]
+pylint = "*"
+
+[requires]
+python_version = "3.6.9"
