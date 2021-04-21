@@ -58,7 +58,7 @@ parser.add_argument("--out",
 	help="save model or not")
 parser.add_argument("--gpu", 
 	type=str,
-	default="0",  
+	default="",  
 	help="gpu card ID")
 args = parser.parse_args()
 
@@ -91,7 +91,7 @@ else:
 
 model = model.NCF(user_num, item_num, args.factor_num, args.num_layers, 
 						args.dropout, config.model, GMF_model, MLP_model)
-model.cuda()
+# model.cuda()
 loss_function = nn.BCEWithLogitsLoss()
 
 if config.model == 'NeuMF-pre':
@@ -109,9 +109,10 @@ for epoch in range(args.epochs):
 	train_loader.dataset.ng_sample()
 
 	for user, item, label in train_loader:
-		user = user.cuda()
-		item = item.cuda()
-		label = label.float().cuda()
+		# user = user.cuda()
+		# item = item.cuda()
+                # label = label.float().cuda()
+		label = label.float()
 
 		model.zero_grad()
 		prediction = model(user, item)
