@@ -130,13 +130,20 @@ for epoch in range(args.epochs):
 			time.strftime("%H: %M: %S", time.gmtime(elapsed_time)))
 	print("HR: {:.3f}\tNDCG: {:.3f}".format(np.mean(HR), np.mean(NDCG)))
 
-	if HR > best_hr:
-		best_hr, best_ndcg, best_epoch = HR, NDCG, epoch
+	if epoch == args.epochs:
 		if args.out:
 			if not os.path.exists(config.model_path):
 				os.mkdir(config.model_path)
 			torch.save(model, 
-				'{}{}.pth'.format(config.model_path, config.model))
+					'{}{}_{}.pth'.format(config.model_path, config.model,config.dataset))
+
+	# if HR > best_hr:
+		# best_hr, best_ndcg, best_epoch = HR, NDCG, epoch
+		# if args.out:
+			# if not os.path.exists(config.model_path):
+				# os.mkdir(config.model_path)
+			# torch.save(model, 
+				# '{}{}.pth'.format(config.model_path, config.model))
 
 print("End. Best epoch {:03d}: HR = {:.3f}, NDCG = {:.3f}".format(
 									best_epoch, best_hr, best_ndcg))

@@ -1,5 +1,7 @@
 # dataset name 
-dataset = 'Yahoo Music'
+# dataset = 'Yahoo Music'
+dataset = 'Good Books'
+# dataset = 'MovieLens 10M'
 # assert dataset in ['ml-1m', 'pinterest-20']
 
 # model name 
