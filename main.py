@@ -111,7 +111,7 @@ for epoch in range(args.epochs):
 	for user, item, label in train_loader:
 		# user = user.cuda()
 		# item = item.cuda()
-                # label = label.float().cuda()
+		# label = label.float().cuda()
 		label = label.float()
 
 		model.zero_grad()

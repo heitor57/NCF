@@ -11,6 +11,7 @@ gensim = "==3.7.1"
 tensorboardX = "==1.6"
 yapf = "*"
 jedi = "*"
+pylint = "*"
 
 [dev-packages]
 pylint = "*"
