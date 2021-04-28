@@ -122,15 +122,15 @@ for epoch in range(args.epochs):
 		# writer.add_scalar('data/loss', loss.item(), count)
 		count += 1
 
-	model.eval()
-	HR, NDCG = evaluate.metrics(model, test_loader, args.top_k)
+	# model.eval()
+	# HR, NDCG = evaluate.metrics(model, test_loader, args.top_k)
 
 	elapsed_time = time.time() - start_time
 	print("The time elapse of epoch {:03d}".format(epoch) + " is: " + 
 			time.strftime("%H: %M: %S", time.gmtime(elapsed_time)))
-	print("HR: {:.3f}\tNDCG: {:.3f}".format(np.mean(HR), np.mean(NDCG)))
+	# print("HR: {:.3f}\tNDCG: {:.3f}".format(np.mean(HR), np.mean(NDCG)))
 
-	if epoch == args.epochs:
+	if epoch == args.epochs-1:
 		if args.out:
 			if not os.path.exists(config.model_path):
 				os.mkdir(config.model_path)
@@ -145,5 +145,5 @@ for epoch in range(args.epochs):
 			# torch.save(model, 
 				# '{}{}.pth'.format(config.model_path, config.model))
 
-print("End. Best epoch {:03d}: HR = {:.3f}, NDCG = {:.3f}".format(
-									best_epoch, best_hr, best_ndcg))
+# print("End. Best epoch {:03d}: HR = {:.3f}, NDCG = {:.3f}".format(
+									# best_epoch, best_hr, best_ndcg))
